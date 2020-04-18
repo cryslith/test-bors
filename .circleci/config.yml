@@ -16,4 +16,4 @@ workflows:
               only:
                 - staging
                 - trying
-                
+                - master
