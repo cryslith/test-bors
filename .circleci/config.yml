@@ -11,7 +11,8 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: [ 0 = "$(git rev-list --min-parents=2 --count "$(git merge-base master HEAD)"..HEAD)" ] && echo linear || (echo nonlinear branch git history && false)
+      - run: |
+          [ 0 = "$(git rev-list --min-parents=2 --count "$(git merge-base master HEAD)"..HEAD)" ] && echo linear || (echo nonlinear branch git history && false)
 workflows:
   version: 2
   workflow:
