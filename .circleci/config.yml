@@ -12,12 +12,17 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: |
-          [ 0 = "$(git rev-list --min-parents=2 --count "$(git merge-base master HEAD)"..HEAD)" ] && echo linear || (echo nonlinear branch git history && false)
+          [ 0 = "$(git rev-list --min-parents=2 --count "$(git merge-base origin/master HEAD)"..HEAD)" ] && echo linear || (echo nonlinear branch git history && false)
 workflows:
   version: 2
   workflow:
     jobs:
-      - check-linear
+      - check-linear:
+          filters:
+            branches:
+              ignore:
+                - staging
+                - trying
       - build:
           filters:
             branches:
