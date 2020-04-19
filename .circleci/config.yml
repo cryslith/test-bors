@@ -18,6 +18,11 @@ workflows:
   workflow:
     jobs:
       - check-linear
+          filters:
+            branches:
+              ignore:
+                - staging
+                - trying
       - build:
           filters:
             branches:
