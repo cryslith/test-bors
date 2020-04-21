@@ -5,3 +5,5 @@ status = [
 pr_status = [
   "ci/circleci: check-linear"
 ]
+
+required_approvals = 1
