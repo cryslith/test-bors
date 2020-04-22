@@ -5,3 +5,5 @@ status = [
 pr_status = [
   "ci/circleci: check-linear"
 ]
+
+use_codeowners = true
